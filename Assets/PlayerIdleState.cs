@@ -9,6 +9,7 @@ public class PlayerIdleState : PlayerGroundedState
     public override void Enter()
     {
         base.Enter();
+        rb.linearVelocity = new Vector2(0, 0);
     }
     
     public override void Exit()
@@ -22,7 +23,7 @@ public class PlayerIdleState : PlayerGroundedState
 
         if (xInput > 0 == player.facingDir > 0 && player.IsWallDetected())
         {
-            
+            return;
         }
 
         if (xInput != 0)
