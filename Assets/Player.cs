@@ -1,7 +1,12 @@
+using System.Collections;
 using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    [Header("Attack details")] 
+    public Vector2[] attackMovement;
+    
+    public bool isBusy { get; private set; }
     [Header("Move info")] 
     public float moveSpeed = 12f;
     public float jumpForce = 12f;
@@ -69,6 +74,13 @@ public class Player : MonoBehaviour
         CheckForDashInput();
     }
 
+    public IEnumerator BusyFor(float seconds)
+    {
+        isBusy = true;
+        yield return new WaitForSeconds(seconds);
+        isBusy = false;
+    }
+    
     public void AnimationTrigger() => stateMachine.currentState.AnimationFinishTrigger();
 
     private void CheckForDashInput()
@@ -93,22 +105,28 @@ public class Player : MonoBehaviour
             stateMachine.ChangeState(dashState);
         }
     }
+    #region Velocity
+    public void ZeroVelocity() => rb.linearVelocity = Vector2.zero;
 
     public void SetVelocity(float xVelocity, float yVelocity)
     {
         rb.linearVelocity = new Vector2(xVelocity, yVelocity);
         FlipController(xVelocity);
     }
+    #endregion
     
+    #region Collision
     public bool IsGroundDetected() => Physics2D.Raycast(groundCheck.position, Vector2.down, groundCheckDistance, whatIsGround);
     public bool IsWallDetected() => Physics2D.Raycast(wallCheck.position, Vector2.right * facingDir, wallCheckDistance, whatIsGround);
-
+    
     private void OnDrawGizmos()
     {
         Gizmos.DrawLine(groundCheck.position, new Vector3(groundCheck.position.x, groundCheck.position.y - groundCheckDistance));
         Gizmos.DrawLine(wallCheck.position, new Vector3(wallCheck.position.x + wallCheckDistance, wallCheck.position.y));
     }
-
+    #endregion
+    
+    #region Flip
     public void Flip()
     {
         facingDir *= -1;
@@ -127,4 +145,5 @@ public class Player : MonoBehaviour
             Flip();
         }
     }
+    #endregion
 }
