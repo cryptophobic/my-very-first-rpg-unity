@@ -22,7 +22,7 @@ public class ParallaxBackground : MonoBehaviour
         float distanceMoved = transform.position.x * (1 - parallaxEffect);
         float distanceToMove = cam.transform.position.x * parallaxEffect;
         
-        transform.position = new Vector2(xPosition + distanceToMove, transform.position.y);
+        transform.position = new Vector2(xPosition + distanceToMove, cam.transform.position.y);
         if (distanceMoved > xPosition + length)
         {
             xPosition += length;
