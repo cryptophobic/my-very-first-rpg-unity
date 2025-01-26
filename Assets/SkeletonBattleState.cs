@@ -16,15 +16,24 @@ public class SkeletonBattleState : EnemyState
 
         if (enemy.IsPlayerDetected())
         {
+            stateTimer = enemy.battleTime;
+            
             if (enemy.IsPlayerDetected().distance < enemy.attackDistance && CanAttack())
             {
                 stateMachine.ChangeState(enemy.attackState);
             }
         }
+        else
+        {
+            if (stateTimer < 0 || Vector2.Distance(player.transform.position, enemy.transform.position) > 7)
+            {
+                stateMachine.ChangeState(enemy.idleState);
+            } 
+        }
         
         moveDir = player.position.x > enemy.transform.position.x ? 1 : -1;
         
-        enemy.SetVelocity(enemy.moveSpeed * moveDir, rb.linearVelocityY);
+        enemy.SetVelocity(enemy.moveSpeed * moveDir * 2, rb.linearVelocityY);
     }
 
     public override void Enter()
