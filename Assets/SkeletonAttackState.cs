@@ -24,6 +24,7 @@ public class SkeletonAttackState : EnemyState
     public override void Enter()
     {
         base.Enter();
+        enemy.transform.localScale = new Vector3(1.75f, 1.75f, 1.75f);
     }
 
     public override void Exit()
