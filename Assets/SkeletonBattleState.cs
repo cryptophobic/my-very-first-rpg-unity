@@ -9,18 +9,16 @@ public class SkeletonBattleState : EnemyState
     {
         this.enemy = enemy;
     }
-
+    
     public override void Update()
     {
         base.Update();
 
         if (enemy.IsPlayerDetected())
         {
-            if (enemy.IsPlayerDetected().distance < enemy.attackDistance)
+            if (enemy.IsPlayerDetected().distance < enemy.attackDistance && CanAttack())
             {
-                Debug.Log("I attack");
-                enemy.ZeroVelocity();
-                return;
+                stateMachine.ChangeState(enemy.attackState);
             }
         }
         
@@ -32,12 +30,16 @@ public class SkeletonBattleState : EnemyState
     public override void Enter()
     {
         base.Enter();
-        
         player = GameObject.Find("Player").transform;
     }
 
     public override void Exit()
     {
         base.Exit();
+    }
+
+    private bool CanAttack()
+    {
+        return Time.time >= enemy.lastTimeAttacked + enemy.attackCooldown;
     }
 }
