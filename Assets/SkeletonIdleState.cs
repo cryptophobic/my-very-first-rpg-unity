@@ -1,14 +1,10 @@
 using UnityEngine;
 
-public class SkeletonIdleState : EnemyState
+public class SkeletonIdleState : SkeletonGroundedState
 {
-    private EnemySkeleton enemy;
-    
-    public SkeletonIdleState(Enemy enemyBase, EnemyStateMachine stateMachine, string animBoolName, EnemySkeleton enemy) : base(enemyBase, stateMachine, animBoolName)
+    public SkeletonIdleState(Enemy enemyBase, EnemyStateMachine stateMachine, string animBoolName, EnemySkeleton enemy) : base(enemyBase, stateMachine, animBoolName, enemy)
     {
-        this.enemy = enemy;
     }
-
 
     public override void Update()
     {
