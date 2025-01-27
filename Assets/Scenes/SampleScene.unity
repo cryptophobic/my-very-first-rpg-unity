@@ -3617,7 +3617,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3853,6 +3853,7 @@ GameObject:
   - component: {fileID: 1645413681}
   - component: {fileID: 1645413684}
   - component: {fileID: 1645413683}
+  - component: {fileID: 1645413685}
   m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
@@ -3973,6 +3974,19 @@ CapsuleCollider2D:
   m_Offset: {x: -0.04, y: -0.31}
   m_Size: {x: 0.8, y: 2.04}
   m_Direction: 0
+--- !u!114 &1645413685
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1645413680}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75af243b0fda4394e955dec43c96d0c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hitMaterial: {fileID: 2100000, guid: 71fc3757d66f541499d7c27e1de45ebd, type: 2}
 --- !u!1 &1741653057
 GameObject:
   m_ObjectHideFlags: 0
@@ -3985,6 +3999,7 @@ GameObject:
   - component: {fileID: 1741653060}
   - component: {fileID: 1741653059}
   - component: {fileID: 1741653058}
+  - component: {fileID: 1741653062}
   m_Layer: 7
   m_Name: EnemySceleton
   m_TagString: Untagged
@@ -4105,7 +4120,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 7.43, y: 2.03, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalScale: {x: 1.4, y: 1.4, z: 1.4}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1498685986}
@@ -4114,6 +4129,19 @@ Transform:
   - {fileID: 832427250}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1741653062
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1741653057}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75af243b0fda4394e955dec43c96d0c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hitMaterial: {fileID: 2100000, guid: 71fc3757d66f541499d7c27e1de45ebd, type: 2}
 --- !u!1 &1942606827
 GameObject:
   m_ObjectHideFlags: 0

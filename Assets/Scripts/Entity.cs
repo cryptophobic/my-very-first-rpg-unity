@@ -5,9 +5,9 @@ public class Entity : MonoBehaviour
     #region Components
     public Animator anim { get; private set; }
     public Rigidbody2D rb { get; private set; }
+    public EntityFX fx { get; private set; }
     #endregion
-
-        
+    
     [Header("Collision info")]
     public Transform attackCheck;
     public float attackCheckRadius;
@@ -27,6 +27,7 @@ public class Entity : MonoBehaviour
 
     protected virtual void Start()
     {
+        fx = GetComponent<EntityFX>();
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponentInChildren<Animator>();
     }
@@ -39,7 +40,8 @@ public class Entity : MonoBehaviour
     public virtual void Damage()
     {
         // gameObject.transform.localScale *= 0.9f;
-        Debug.Log(gameObject.name + " has been damaged!");
+        fx.StartCoroutine("FlashFX");
+        // Debug.Log(gameObject.name + " has been damaged!");
     }
     
     #region Velocity
