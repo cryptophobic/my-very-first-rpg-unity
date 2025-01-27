@@ -39,13 +39,13 @@ public class SkeletonBattleState : EnemyState
     public override void Enter()
     {
         base.Enter();
-        enemy.transform.localScale = new Vector3(1.75f, 1.75f, 1.75f);
+        // enemy.transform.localScale = new Vector3(1.75f, 1.75f, 1.75f);
         player = GameObject.Find("Player").transform;
     }
 
     public override void Exit()
     {
-        enemy.transform.localScale = new Vector3(1.4f, 1.4f, 1.4f);
+        // enemy.transform.localScale = new Vector3(1.4f, 1.4f, 1.4f);
         base.Exit();
     }
 
