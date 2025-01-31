@@ -51,6 +51,7 @@ public class SkeletonBattleState : EnemyState
 
     private bool CanAttack()
     {
-        return Time.time >= enemy.lastTimeAttacked + enemy.attackCooldown;
+        var lastTime = enemy.lastTimeBeenAttacked > enemy.lastTimeAttacked ? enemy.lastTimeBeenAttacked : enemy.lastTimeAttacked;
+        return Time.time >= lastTime + enemy.attackCooldown;
     }
 }

@@ -2,14 +2,17 @@ using UnityEngine;
 
 public class PlayerDashState : PlayerState
 {
+    private GameObject playerObject;
+    
     public PlayerDashState(Player _player, PlayerStateMachine _stateMachine, string _animBoolName) : base(_player, _stateMachine, _animBoolName)
     {
+        playerObject = GameObject.Find("Player");
     }
 
     public override void Enter()
     {
         base.Enter();
-
+        playerObject.layer = LayerMask.NameToLayer("PlayerDash");
         stateTimer = player.dashDuration;
     }
 
@@ -33,5 +36,6 @@ public class PlayerDashState : PlayerState
     {
         base.Exit();
         player.SetVelocity(0, rb.linearVelocity.y);
+        playerObject.layer = LayerMask.NameToLayer("Player");
     }
 }

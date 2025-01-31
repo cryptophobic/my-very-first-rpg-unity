@@ -3873,6 +3873,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a3c55e0a586b3c4bafcdace96a1dfd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  knockbackDirection: {x: 2, y: 5}
+  knockbackDuration: 0.5
   attackCheck: {fileID: 1944848642}
   attackCheckRadius: 0.8
   groundCheck: {fileID: 336078745}
@@ -4068,7 +4070,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDamping: 0
   m_AngularDamping: 0.05
-  m_GravityScale: 4
+  m_GravityScale: 12
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -4092,6 +4094,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8a2fe671d4962347851d0b2e04c935b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  knockbackDirection: {x: 7, y: 12}
+  knockbackDuration: 0.5
   attackCheck: {fileID: 832427250}
   attackCheckRadius: 0.8
   groundCheck: {fileID: 1632527369}
@@ -4108,8 +4112,9 @@ MonoBehaviour:
   idleTime: 2
   battleTime: 7
   attackDistance: 1.5
-  attackCooldown: 0.4
+  attackCooldown: 1
   lastTimeAttacked: 0
+  lastTimeBeenAttacked: 0
 --- !u!4 &1741653061
 Transform:
   m_ObjectHideFlags: 0
