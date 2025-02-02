@@ -67,7 +67,7 @@ public class Entity : MonoBehaviour
         SetVelocity(Vector2.zero.x, Vector2.zero.y);
     }
 
-    public void SetVelocity(float xVelocity, float yVelocity)
+    public void SetVelocity(float xVelocity, float yVelocity, bool avoidFlip = false)
     {
         if (isKnocked)
         {
@@ -75,7 +75,10 @@ public class Entity : MonoBehaviour
         }
         
         rb.linearVelocity = new Vector2(xVelocity, yVelocity);
-        FlipController(xVelocity);
+        if (!avoidFlip)
+        {
+            FlipController(xVelocity);
+        }
     }
     #endregion
     #region Collision
